@@ -7,15 +7,40 @@
     <title>Notes</title>
     <script src="./script.js"></script>
 </head>
+
 <body>
     <div>
-        <input id="text" type="text" name="text" autofocus placeholder="Enter note ..."/>
-        <button id="add">Add</button>
+
+
+        <!--<input id="text" type="text" name="text" autofocus placeholder="Enter note ..."/> -->
+        <input id="title" type="text" name="title" placeholder="Title" spellcheck="false" />
+        <textarea id="text" type="text" name="text" placeholder="Enter note ..." spellcheck="false" rows="6"></textarea>
+        <div>
+            <button id="add">Add</button>
+        </div>
     </div>
     <ul id="list">
-        <li>Note 1</li>
-        <li>Note 2</li>
-        <li>Note 3</li>
+        <li id="676c9ba771">
+            <div>Title 1</div>
+            <div>Note 1</div>
+            <div>
+              <button>Delete</button>
+            </div>
+          </li>
+          <li id="dc19d1538f">
+            <div>Title 2</div>
+            <div>Note 2</div>
+            <div>
+              <button>Delete</button>
+            </div>
+          </li>
+          <li id="fd8c75b4fb">
+            <div>Title 3</div>
+            <div>Note 2</div>
+            <div>
+              <button>Delete</button>
+            </div>
+          </li>
     </ul>
 </body>
 </html>
