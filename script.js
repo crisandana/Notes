@@ -4,10 +4,13 @@ const notes = [
     // "Note 2",
     // "Note 3"
     // ...
+     // { id: "676c9ba771", title: "Title 1", text: "ToDo 1" },
+  // { id: "dc19d1538f", title: "Title 2", text: "ToDo 2" },
+  // { id: "fd8c75b4fb", title: "Title 3", text: "ToDo 2" },
+  // ...
   ];
   
   // View
-  // see HTML
   function buildLIItem(note) {
     const item = document.createElement("li");
     item.textContent = note;
@@ -19,19 +22,11 @@ const notes = [
 document.addEventListener("DOMContentLoaded", function (){
     const button = document.getElementById("add"); //"add" matches to the id from <button>(html)
     button.addEventListener("click", handleClick); // adding an event listener by using, button.addEventListener()
-// syntax addEventListener(type, handleFunction);
-    const input = document.getElementById("text"); //"text" matches to the id from <input>(html)
-    input.addEventListener("keydown", handleKeyDown);
+// syntax addEventListener(type, handleFunction);    
 })
 
 function handleClick() {
     add();
-}
-
-function handleKeyDown(event) {
-    if(event.key === "Enter") {
-        add();
-    }
 }
 
 function handleClickItem(event) {
