@@ -1,3 +1,21 @@
+// Model
+const notes = [
+    // "Note 1",
+    // "Note 2",
+    // "Note 3"
+    // ...
+  ];
+  
+  // View
+  // see HTML
+  function buildLIItem(note) {
+    const item = document.createElement("li");
+    item.textContent = note;
+    item.addEventListener("click", handleClickLIItem);
+    return item;
+  }
+  
+  // Controller
 document.addEventListener("DOMContentLoaded", function (){
     const button = document.getElementById("add"); //"add" matches to the id from <button>(html)
     button.addEventListener("click", handleClick); // adding an event listener by using, button.addEventListener()
@@ -26,11 +44,9 @@ function add(){
     const note = input.value; // const note = findHTMLelement.value
     if(note) {
         const list = document.getElementById("list"); // Select the <ul> element using the id property
-        const item = document.cretateElement("li"); // Create a new <item></item> element 
-        item.textContent = note; // Add the text content //used to set node of item 
-// Syntax: parentNode.appendChild(childNode);
-        item.addEventListener("click", handleClickItem);
+        const item = buildLIItem(note);      
         list.appendChild(item); // Append the item element to the <ul> element
+        notes.push(note);
         input.value = "";  // clear input field
         input.focus();   // specified element can be focused     
     }
