@@ -1,8 +1,10 @@
-const button = document.getElementById("add"); //"add" matches to the id from <button>(html)
-button.addEventListener("click", handleClick); // adding an event listener by using, button.addEventListener()
+document.addEventListener("DOMContentLoaded", function (){
+    const button = document.getElementById("add"); //"add" matches to the id from <button>(html)
+    button.addEventListener("click", handleClick); // adding an event listener by using, button.addEventListener()
 // syntax addEventListener(type, handleFunction);
-const input = document.getElementById("text"); //"text" matches to the id from <input>(html)
-input.addEventListener("keydown", handleKeyDown);
+    const input = document.getElementById("text"); //"text" matches to the id from <input>(html)
+    input.addEventListener("keydown", handleKeyDown);
+})
 
 function handleClick() {
     add();
