@@ -12,5 +12,7 @@ function handleClick(){
         item.textContent = note; // Add the text content //used to set node of item 
 // Syntax: parentNode.appendChild(childNode);       
         list.appendChild(item); // Append the item element to the <ul> element
+        input.value = "";  // clear input field
+        input.focus();   // specified element can be focused     
     }
 }
