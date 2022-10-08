@@ -71,7 +71,13 @@ function handleRegistration(registration) {
 
 function handleUpdate(worker) {
     if (navigator.serviceWorker.controller) {
-        worker.postMessage({ action: "skipWaiting" });
+        const modal = document.getElementById("service-worker");
+        const button = document.getElementById("service-worker-control");
+        button.addEventListener("click", function () {
+            worker.postMessage({ action: "skipWaiting" });
+            modal.style.display = "none";
+        });
+        modal.style.display = "block";
     }
 }
 
