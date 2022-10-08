@@ -51,6 +51,30 @@ function handleClickDelete(id) {
     };
 }
 
+function handleRegistration(registration) {
+    registration.addEventListener("updatefound", function () {
+        if (registration.installing) {
+            const worker = registration.installing;
+            worker.addEventListener("statechange", function () {
+                if (worker.state === "installed") {
+                    handleUpdate(worker);
+                }
+            });
+        } else if (registration.waiting) {
+            const worker = registration.waiting;
+            if (worker.state === "installed") {
+                handleUpdate(worker);
+            }
+        }
+    });
+}
+
+function handleUpdate(worker) {
+    if (navigator.serviceWorker.controller) {
+        worker.postMessage({ action: "skipWaiting" });
+    }
+}
+
 function add(){
     const title = document.getElementById("title"); //"title" matches to the id from <title>(html)
     const text = document.getElementById("text"); //"text" matches to the id from <text>(html)
@@ -92,9 +116,15 @@ function init() {
   function registerServiceWorker() { // This code checks if the browser supports service workers.
       // Supported!
     if("serviceWorker" in navigator) { 
+        let refreshing;
+        navigator.serviceWorker.addEventListener("controllerchange", function () {
+            if (refreshing) return;
+            window.location.reload();
+            refreshing = true;
+        });
         navigator.serviceWorker
         .register("/notes/sw.js", { scope: "/notes/ " })
-        .then((registration) => console.log("Service Worker registered!", registration))
+        .then((registration) => handleRegistration(registration))
         .catch((error) => console.log("Service Worker registration failed!", error));
     }
 
