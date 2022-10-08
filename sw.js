@@ -1,4 +1,4 @@
-const version = "v1.0.0-beta.1";
+const version = "v1.0.0-beta.2";
 
 const files = [
   "/notes/",
