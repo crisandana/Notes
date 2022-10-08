@@ -1,4 +1,4 @@
-const version = "v1.0.0-beta.0";
+const version = "v1.0.0-beta.1";
 
 const files = [
   "/notes/",
@@ -18,6 +18,12 @@ const files = [
   "/notes/assets/favicon/mstile-310x150.png",
   "/notes/assets/favicon/mstile-310x310.png",
 ];
+
+self.addEventListener("message", (event) => {
+    if (event.data.action === "skipWaiting") {
+        self.skipWaiting();
+    }
+});
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
