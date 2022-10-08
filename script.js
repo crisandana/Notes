@@ -81,6 +81,7 @@ function init() {
     registerEventHandlers();
     load();
     draw();
+    registerServiceWorker(); // Step 18 add a service worker
   }
   
   function registerEventHandlers() {
@@ -88,6 +89,16 @@ function init() {
     button.addEventListener("click", handleClick);
   }
   
+  function registerServiceWorker() { // This code checks if the browser supports service workers.
+      // Supported!
+    if("serviceWorker" in navigator) { 
+        navigator.serviceWorker
+        .register("/notes/sw.js", { scope: "/notes/ " })
+        .then((registration) => console.log("Service Worker registered!", registration))
+        .catch((error) => console.log("Service Worker registration failed!", error));
+    }
+
+  }
   function load() {
     notes = JSON.parse(localStorage.getItem("notes")) || [];
   }
