@@ -17,39 +17,39 @@
     <link rel="stylesheet" href="/notes/style.css" />
   </head>
 <body>
-  <main>
-    <div>
-        <input id="title" type="text" name="title" placeholder="Title" spellcheck="false" />
-        <textarea id="text" type="text" name="text" placeholder="Enter note ..." spellcheck="false" rows="6"></textarea>
-        <div>
-            <button id="add">Add</button>
+  <main id ="app">
+    <div class="input">
+        <input id="title" class="input__title" type="text" name="title" placeholder="Title" spellcheck="false" />
+        <textarea id="text" class="input__text" type="text" name="text" placeholder="Enter note ..." spellcheck="false" rows="6"></textarea>
+        <div class="input__controls">
+            <button id="add" class="input__controls__add">Add</button>
         </div>
     </div>
-    <ul id="list">
-        <li id="676c9ba771">
+    <ul id="list" class="notes">
+        <li id="676c9ba771" class="note">
           <article>
-            <header>Title 1</header>
-            <p>Note 1</p>
-            <div>
-              <button>Delete</button>
+            <header class="note__title">Title 1</header>
+            <p class="note__text">Note 1</p>
+            <div class="note__controls">
+              <button class="note__controls__delete">Delete</button>
             </div>
           </article>
           </li>
-          <li id="dc19d1538f">
+          <li id="dc19d1538f" class="note">
             <article>
-            <header>Title 2</header>
-            <p>Note 2</p>
-            <div>
-              <button>Delete</button>
+            <header class="note__title">Title 2</header>
+            <p class="note__text">Note 2</p>
+            <div class="note__controls">
+              <button class="note__controls__delete">Delete</button>
             </div>
           </article>
           </li>
-          <li id="fd8c75b4fb">
+          <li id="fd8c75b4fb" class="note">
             <article>
-            <header>Title 3</header>
-            <p>Note 2</p>
-            <div>
-              <button>Delete</button>
+            <header class="note__title">Title 3</header>
+            <p class="note__text">Note 2</p>
+            <div class="note__controls">
+              <button class="note__controls__delete">Delete</button>
             </div>
           </article>
           </li>
@@ -57,9 +57,9 @@
   </main>
   <!-- Step 21: implement service worker functionality - control -->
   <div id="global-ui">
-    <div id="service-worker" style="display: none">
-      <div>Update available!</div>
-      <button id="service-worker-control">Update</button>
+    <div id="service-worker" class="service-worker"  style="display: none">
+      <div class="service-worker__text">Update available!</div>
+      <button id="service-worker-control" class="service-worker__control">Update</button>
     </div>
   </div>
   <!-- Step 13: implement new model -->
