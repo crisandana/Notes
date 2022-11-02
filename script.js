@@ -4,23 +4,27 @@ let notes = [
     // "Note 2",    // { id: "dc19d1538f", title: "Title 2", text: "ToDo 2" },
     // "Note 3"     // { id: "fd8c75b4fb", title: "Title 3", text: "ToDo 2" },
     // ...          // ... 
-  ];
-  
+];  
   // View
   // see HTML
   function buildLIItem(note) {    
     const item = document.createElement("li"); // create a item element
-    // Step 13: implement new model
-    item.id = note.id;
+    item.id = note.id; // Step 13: implement new model
+    item.classList.add("note");
+    
     const article = document.createElement("article"); // create a article element
     const title = document.createElement("header"); // Creates a new element node with the given tag(header)
     title.textContent = note.title;
+    title.classList.add("note__title");
     const text = document.createElement("p");
     text.textContent = note.text;
+    text.classList.add("note__text");
 
     const controls = document.createElement("div"); // create a new element node with the given tag (<div>)
+    controls.classList.add("note__controls");
     const button = document.createElement("button"); // create <button> element
     button.textContent = "Delete"; // set its class to "delete"
+    button.classList.add("note__controls_delete");
     button.addEventListener("click", handleClickDelete(note.id)); // elem.addEventListener ("click", myFunction(event, myObject));
     controls.appendChild(button); // parentElem.appendChild(node)
 
