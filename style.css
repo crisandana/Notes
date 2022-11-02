@@ -16,21 +16,34 @@ body {
 }
 
 .input__title {
+    appearance: unset;
+    background: unset;
+    border: unset;
+    outline: unset;
 }
 
 .input__text {
+    appearance: unset;
+    background: unset;
+    border: unset;
+    outline: unset;
 }
 
 .input__controls {
 }
 
 .input__controls__add {
+    appearance: unset;
+    background: unset;
+    border: unset;
 }
 
 .notes {
+    padding-left: unset;
 }
 
 .note {
+    list-style-type: none;
 }
 
 .note__title {
@@ -43,6 +56,9 @@ body {
 }
 
 .note__controls__delete {
+    appearance: unset;
+    background: unset;
+    border: unset;
 }
 
 .service-worker {
@@ -52,4 +68,7 @@ body {
 }
 
 .service-worker__control {
+    appearance: unset;
+    background: unset;
+    border: unset;
 }
