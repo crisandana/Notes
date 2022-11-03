@@ -5,12 +5,22 @@ let notes = [
     // "Note 3"     // { id: "fd8c75b4fb", title: "Title 3", text: "ToDo 2" },
     // ...          // ... 
 ];  
+let colors = [ // Step 35: implement color control
+    { background: "#fff740", shadow: "1px 1px 4px 1px #bfb700" },
+    { background: "#feff9c", shadow: "1px 1px 4px 1px #a3a400" },
+    { background: "#7afcff", shadow: "1px 1px 4px 1px #009397" },
+    { background: "#ff65a3", shadow: "1px 1px 4px 1px #8e0039" },
+    { background: "#ff7eb9", shadow: "1px 1px 4px 1px #980046" },
+  ];
   // View
   // see HTML
   function buildLIItem(note, classNames = []) {     
     const item = document.createElement("li"); // create a item element
     item.id = note.id; // Step 13: implement new model
     item.classList.add("note", ...classNames);
+    // Step 35: implement color control
+    if (note.color) item.style.background = note.color;
+    if (note.shadow) item.style.boxShadow = note.shadow;
     
     const article = document.createElement("article"); // create a article element
     const title = document.createElement("header"); // Creates a new element node with the given tag(header)
@@ -92,10 +102,14 @@ function handleUpdate(worker) {
 function add(){
     const title = document.getElementById("title"); //"title" matches to the id from <title>(html)
     const text = document.getElementById("text"); //"text" matches to the id from <text>(html)
-
+    // Step 35: implement color control
+    const background = title.parentNode.style.background;
+    const shadow = title.parentNode.style.boxShadow;
+    
     if(title.value || text.value) {
         const list = document.getElementById("list"); // Select the <ul> element using the id property
         const note = createNote(title.value, text.value);
+        const note = createNote(title.value, text.value, background, shadow); // Step 35: implement color control
         const item = buildLIItem(note, ["slide-in"]);      
         list.appendChild(item); // Append the item element to the <ul> element
         notes.push(note);
@@ -103,10 +117,9 @@ function add(){
         text.value = "";          
     }
 }
-
-function createNote(title, text) {
+function createNote(title, text, color, shadow) {
     const id = generateId(title, text);
-    return { id, title, text };
+    return { id, title, text, color, shadow};
 }
 
 function generateId(title, text, length = 10) {
@@ -117,6 +130,7 @@ function generateId(title, text, length = 10) {
 
 function init() {
     registerEventHandlers();
+    initInputControls(); // Step 35: implement color control
     load();
     draw();
     registerServiceWorker(); // Step 18 add a service worker
@@ -141,8 +155,30 @@ function init() {
         .then((registration) => handleRegistration(registration))
         .catch((error) => console.log("Service Worker registration failed!", error));
     }
-
   }
+// Step 35: implement color control
+  function initInputControls() {
+    const input = document.getElementById("title").parentNode;
+    const color = document.getElementById("color");
+    const container = document.createElement("div");
+    container.classList.add("input__color-palette");
+    container.style.display = "none";
+    for (const color of colors) {
+      const button = document.createElement("button");
+      button.style.background = color.background;
+      button.classList.add("input__color-palette-select");
+      button.addEventListener("click", function () {
+        input.style.background = color.background;
+        input.style.boxShadow = color.shadow;
+      });
+      container.appendChild(button);
+    }
+    color.appendChild(container);
+    color.addEventListener("click", function () {
+      container.style.display = container.style.display === "none" ? "flex" : "none";
+    });
+  } // End Step 35: implement color control
+
   function load() {
     notes = JSON.parse(localStorage.getItem("notes")) || [];
   }
