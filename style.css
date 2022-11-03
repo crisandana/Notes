@@ -102,15 +102,31 @@ body {
 }
 
 .service-worker {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    background: #fff740;
+    box-shadow: 1px 1px 3px 1px #bfb700;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem 1.2rem;
 }
 
 .service-worker__text {
+    margin-bottom: 0.5rem;
 }
 
 .service-worker__control {
     appearance: unset;
-    background: unset;
+    background: gray;
+    box-shadow: 1px 1px 2px 1px darkgray;
     border: unset;
+    display: block;
+    margin: auto;
+    padding: 0.4rem 1.2rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
 }
  /*Step 31: update style - add responsive styling for tablet and mobile*/
 @media screen and (max-width: 1280px) {
