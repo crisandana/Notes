@@ -112,7 +112,7 @@ body {
     background: unset;
     border: unset;
 }
-
+ /*Step 31: update style - add responsive styling for tablet and mobile*/
 @media screen and (max-width: 1280px) {
     .note {
 /* On screens that are 1280px or less, set the flex */
@@ -130,3 +130,21 @@ body {
       flex: 0 1 calc(100% - 4rem);
     }
 }
+/*Step 32: update style - add simple CSS animation*/
+.slide-in {
+    animation-name: slide;
+    animation-duration: 200ms;
+    animation-delay: 0;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-direction: normal;
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(100vw);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
