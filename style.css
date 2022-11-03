@@ -48,12 +48,15 @@ body {
 }
 
 .input__controls {
+    display: flex;
+    flex-flow: row-reverse nowrap;
 }
 
 .input__controls__add {
     appearance: unset;
     background: unset;
     border: unset;
+    cursor: pointer;
 }
 
 .notes {
@@ -87,12 +90,15 @@ body {
 }
 
 .note__controls {
+    display: flex;
+    flex-flow: row-reverse nowrap;
 }
 
 .note__controls__delete {
     appearance: unset;
     background: unset;
     border: unset;
+    cursor: pointer;
 }
 
 .service-worker {
