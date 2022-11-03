@@ -59,6 +59,42 @@ body {
     cursor: pointer;
 }
 
+/* Step 35: implement color control */
+.input__controls__color {
+    appearance: unset;
+    background: unset;
+    border: unset;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .input__color-palette {
+    position: absolute;
+    right: 2.5rem;
+    bottom: -1px;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+  }
+  
+  .input__color-palette-select {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: none;
+    cursor: pointer;
+    border-left: 1px solid black;
+  }
+  
+  .input__color-palette-select:first-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  
+  .input__color-palette-select:last-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-left: unset;
+  } /*End Step 35: implement color control*/
+
 .notes {
     padding-left: unset;
     display: flex;
