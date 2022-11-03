@@ -23,9 +23,12 @@ let notes = [
     const controls = document.createElement("div"); // create a new element node with the given tag (<div>)
     controls.classList.add("note__controls");
     const button = document.createElement("button"); // create <button> element
-    button.textContent = "Delete"; // set its class to "delete"
     button.classList.add("note__controls_delete");
     button.addEventListener("click", handleClickDelete(note.id)); // elem.addEventListener ("click", myFunction(event, myObject));
+    const icon = document.createElement("i");
+    icon.classList.add("fas", "fa-trash", "fa-2x");
+    
+    
     controls.appendChild(button); // parentElem.appendChild(node)
 
     article.appendChild(title); // parentElem.appendChild(node)
