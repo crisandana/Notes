@@ -24,6 +24,7 @@ let notes = [
     controls.classList.add("note__controls");
     const button = document.createElement("button"); // create <button> element
     button.classList.add("note__controls_delete");
+    button.title = "Delete Note"; // Step 34: add description to button actions
     button.addEventListener("click", handleClickDelete(note.id)); // elem.addEventListener ("click", myFunction(event, myObject));
     const icon = document.createElement("i");
     icon.classList.add("fas", "fa-trash", "fa-2x");
