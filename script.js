@@ -7,10 +7,10 @@ let notes = [
 ];  
   // View
   // see HTML
-  function buildLIItem(note) {    
+  function buildLIItem(note, classNames = []) {     
     const item = document.createElement("li"); // create a item element
     item.id = note.id; // Step 13: implement new model
-    item.classList.add("note");
+    item.classList.add("note", ...classNames);
     
     const article = document.createElement("article"); // create a article element
     const title = document.createElement("header"); // Creates a new element node with the given tag(header)
@@ -95,7 +95,7 @@ function add(){
     if(title.value || text.value) {
         const list = document.getElementById("list"); // Select the <ul> element using the id property
         const note = createNote(title.value, text.value);
-        const item = buildLIItem(note);      
+        const item = buildLIItem(note, ["slide-in"]);      
         list.appendChild(item); // Append the item element to the <ul> element
         notes.push(note);
         title.value = "";  // clear input field
