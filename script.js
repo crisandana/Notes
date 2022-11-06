@@ -37,9 +37,8 @@ let colors = [ // Step 35: implement color control
     button.title = "Delete Note"; // Step 34: add description to button actions
     button.addEventListener("click", handleClickDelete(note.id)); // elem.addEventListener ("click", myFunction(event, myObject));
     const icon = document.createElement("i");
-    icon.classList.add("fas", "fa-trash", "fa-2x");
-    
-    
+    icon.classList.add("fas", "fa-trash", "fa-2x");  
+    button.appendChild(icon);
     controls.appendChild(button); // parentElem.appendChild(node)
 
     article.appendChild(title); // parentElem.appendChild(node)
@@ -108,7 +107,6 @@ function add(){
     
     if(title.value || text.value) {
         const list = document.getElementById("list"); // Select the <ul> element using the id property
-        const note = createNote(title.value, text.value);
         const note = createNote(title.value, text.value, background, shadow); // Step 35: implement color control
         const item = buildLIItem(note, ["slide-in"]);      
         list.appendChild(item); // Append the item element to the <ul> element
